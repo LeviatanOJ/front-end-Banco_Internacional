@@ -1,1 +1,107 @@
-<p>footer works!</p>
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Sección principal del footer -->
+    <div class="footer-main">
+      <!-- Columna del logo y descripción -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo">
+            <span class="logo-icon">⚡</span>
+          </div>
+          <h3 class="footer-title">Actívate Banco Internacional</h3>
+        </div>
+        <p class="footer-description">
+          Plataforma interna para colaboradores del Banco Internacional.
+          Participa en nuestras actividades deportivas y mantente activo.
+        </p>
+        <div class="quick-actions">
+          <button class="quick-action-btn" (click)="abrirSoporte()">
+            <span>🆘</span> Soporte IT
+          </button>
+          <button class="quick-action-btn" (click)="reportarProblema()">
+            <span>🐛</span> Reportar Issue
+          </button>
+        </div>
+      </div>
+
+      <!-- Columna de navegación rápida -->
+      <div class="footer-section">
+        <h4 class="footer-section-title">Navegación</h4>
+        <ul class="footer-links">
+          <li><a routerLink="/" class="footer-link">Inicio</a></li>
+          <li>
+            <a routerLink="/campeonato" class="footer-link">Campeonato</a>
+          </li>
+          <li>
+            <a routerLink="/manana-activate" class="footer-link"
+              >Mañana Actívate</a
+            >
+          </li>
+          <li><a routerLink="/clubes" class="footer-link">Clubes</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna de recursos internos -->
+      <div class="footer-section">
+        <h4 class="footer-section-title">Recursos</h4>
+        <ul class="footer-links">
+          <li><a href="#" class="footer-link">Manual de Usuario</a></li>
+          <li><a href="#" class="footer-link">Reglamento Deportivo</a></li>
+          <li><a href="#" class="footer-link">Calendario de Eventos</a></li>
+          <li><a href="#" class="footer-link">Portal RRHH</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna de soporte interno -->
+      <div class="footer-section">
+        <h4 class="footer-section-title">Soporte</h4>
+        <div class="contact-info">
+          <div
+            class="contact-item"
+            (click)="onContactClick('email', 'soporte.activate@bancointernacional.com')"
+          >
+            <span class="contact-icon">📧</span>
+            <span class="contact-text"
+              >soporte.activate&#64;bancointernacional.com</span
+            >
+          </div>
+          <div
+            class="contact-item"
+            (click)="onContactClick('phone', 'Ext. 2345')"
+          >
+            <span class="contact-icon">📞</span>
+            <span class="contact-text">Mesa de Ayuda: Ext. 2345</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">⏰</span>
+            <span class="contact-text">Lun-Vie: 8:00 AM - 6:00 PM</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🏢</span>
+            <span class="contact-text">Edificio Principal - Piso 12</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Línea divisora -->
+    <div class="footer-divider"></div>
+
+    <!-- Sección inferior del footer -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <p class="copyright">
+          © {{ currentYear }} Actívate Banco Internacional. Todos los derechos
+          reservados.
+        </p>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-bottom-link">Política de Uso Interno</a>
+          <span class="separator">|</span>
+          <a href="#" class="footer-bottom-link">Seguridad IT</a>
+          <span class="separator">|</span>
+          <a href="#" class="footer-bottom-link">Versión {{ appVersion }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

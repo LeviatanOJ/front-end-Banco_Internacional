@@ -137,6 +137,13 @@ export class Header implements OnInit {
     this.userMenuAbierto = false;
   }
 
+  menuMovilAbierto: boolean = false; // << nueva variable para menú móvil
+
+  // Nuevo método para toggle menú móvil
+  toggleMenuMovil() {
+    this.menuMovilAbierto = !this.menuMovilAbierto;
+    this.cerrarUserMenu(); // opcional, cerrar menú usuario si estaba abierto
+  }
   // Función de logout
   logout() {
     // Limpiar localStorage

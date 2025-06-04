@@ -9,7 +9,7 @@
     </div>
 
     <!-- Menú de navegación -->
-    <ul class="nav-menu">
+    <ul class="nav-menu" [class.active]="menuMovilAbierto">
       <li class="nav-item">
         <a
           routerLink="/"
@@ -111,7 +111,11 @@
     </div>
 
     <!-- Botón móvil (hamburguesa) -->
-    <div class="mobile-menu-toggle" (click)="cerrarUserMenu()">
+    <div
+      class="mobile-menu-toggle"
+      [class.active]="menuMovilAbierto"
+      (click)="toggleMenuMovil()"
+    >
       <span></span>
       <span></span>
       <span></span>
