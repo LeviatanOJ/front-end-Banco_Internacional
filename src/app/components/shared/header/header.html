@@ -81,6 +81,12 @@
     >
       <div class="modal" (click)="$event.stopPropagation()">
         <h2>Iniciar sesión</h2>
+        <h2 class="cerrar-modal">Datos de prueba</h2>
+        <h4>
+          <pre>
+            "correo": "juan&#64;ejemplo.com", "password": "contraseña123"</pre
+          >
+        </h4>
         <form (ngSubmit)="login()" #loginForm="ngForm">
           <input
             type="email"
