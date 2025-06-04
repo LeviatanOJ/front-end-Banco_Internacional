@@ -1,0 +1,94 @@
+<div class="campeonato-container">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Campeonato de Fútbol</h1>
+      <p>
+        Conoce todos los equipos participantes y únete a la pasión del fútbol
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">{{ equipos.length }}</span>
+          <span class="stat-label">Equipos</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-decoration">⚽</div>
+  </section>
+
+  <!-- Loading -->
+  <div class="loading" *ngIf="cargando">
+    <div class="spinner"></div>
+    <p>Cargando equipos...</p>
+  </div>
+
+  <!-- Equipos Grid -->
+  <section class="equipos-section" *ngIf="!cargando">
+    <div class="container">
+      <div class="equipos-grid">
+        <div class="equipo-card" *ngFor="let equipo of equipos">
+          <div class="equipo-header">
+            <div class="equipo-badge">
+              <span class="equipo-icon">🏆</span>
+              <div class="equipo-info">
+                <h3>{{ equipo.nombre }}</h3>
+                <span class="equipo-id">#{{ equipo.id }}</span>
+              </div>
+            </div>
+            <span
+              class="categoria-badge"
+              [class]="'categoria-' + obtenerClaseCategoria(equipo.Categoria.nombre)"
+            >
+              {{ equipo.Categoria.nombre }}
+            </span>
+          </div>
+
+          <div class="equipo-details">
+            <div class="detail-item">
+              <span class="icon">🌍</span>
+              <div>
+                <strong>Provincia:</strong>
+                <p>{{ equipo.Ciudad.provincia }}</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="icon">🏙️</span>
+              <div>
+                <strong>Ciudad:</strong>
+                <p>{{ equipo.Ciudad.capital }}</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="icon">📅</span>
+              <div>
+                <strong>Fecha de Inscripción:</strong>
+                <p>{{ formatearFecha(equipo.fecha_inscripcion) }}</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="icon">⚽</span>
+              <div>
+                <strong>Categoría:</strong>
+                <p>{{ equipo.Categoria.nombre }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="equipo-actions">
+            <button class="support-btn">
+              <span class="btn-icon">❤️</span>
+              Apoyar Equipo
+            </button>
+            <button class="info-btn">
+              <span class="btn-icon">📊</span>
+              Ver Estadísticas
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

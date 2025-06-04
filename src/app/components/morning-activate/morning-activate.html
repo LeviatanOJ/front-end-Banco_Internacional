@@ -1,0 +1,68 @@
+<div class="morning-activate-container">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Mañana Activate</h1>
+      <p>Comienza tu día con energía y únete a nuestros eventos matutinos</p>
+    </div>
+  </section>
+
+  <!-- Loading -->
+  <div class="loading" *ngIf="cargando">
+    <div class="spinner"></div>
+    <p>Cargando eventos...</p>
+  </div>
+
+  <!-- Eventos Grid -->
+  <section class="eventos-section" *ngIf="!cargando">
+    <div class="container">
+      <div class="eventos-grid">
+        <div class="evento-card" *ngFor="let evento of eventos">
+          <div class="evento-header">
+            <span class="evento-icon">🌅</span>
+            <h3>Morning Activate</h3>
+            <span class="fecha-badge">
+              {{ formatearFecha(evento.fecha) }}
+            </span>
+          </div>
+
+          <div class="evento-details">
+            <div class="detail-item">
+              <span class="icon">📅</span>
+              <div>
+                <strong>Fecha:</strong>
+                <p>{{ evento.fecha }}</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="icon">🌍</span>
+              <div>
+                <strong>Alcance:</strong>
+                <p>{{ evento.ciudad }}</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="icon">📝</span>
+              <div>
+                <strong>Descripción:</strong>
+                <p>{{ evento.descripcion }}</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="icon">⏰</span>
+              <div>
+                <strong>Horario:</strong>
+                <p>7:00 AM - 8:30 AM</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="join-btn">Participar en Evento</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

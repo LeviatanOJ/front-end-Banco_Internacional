@@ -1,0 +1,114 @@
+<header class="header">
+  <nav class="navbar">
+    <!-- Logo y título -->
+    <div class="brand">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+      </div>
+      <h1 class="brand-title">Actívate Banco Internacional</h1>
+    </div>
+
+    <!-- Menú de navegación -->
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}"
+          class="nav-link"
+        >
+          Inicio
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/campeonato" routerLinkActive="active" class="nav-link">
+          Campeonato
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          routerLink="/manana-activate"
+          routerLinkActive="active"
+          class="nav-link"
+        >
+          Mañana Actívate
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/clubes" routerLinkActive="active" class="nav-link">
+          Clubes
+        </a>
+      </li>
+    </ul>
+
+    <!-- Área de usuario (cuando está logueado) -->
+    <div class="user-area" *ngIf="usuarioLogueado; else loginButton">
+      <div class="user-info">
+        <span class="welcome-text">¡Bienvenido!</span>
+        <span class="user-name">{{ nombreUsuario }}</span>
+      </div>
+      <div class="user-menu">
+        <button class="user-menu-btn" (click)="toggleUserMenu()">
+          <span class="user-avatar">{{ obtenerIniciales() }}</span>
+          <span class="dropdown-arrow" [class.rotated]="userMenuAbierto"
+            >▼</span
+          >
+        </button>
+        <div class="user-dropdown" [class.show]="userMenuAbierto">
+          <button class="dropdown-item" (click)="irAPerfil()">
+            <span>👤</span> Mi Perfil
+          </button>
+          <button class="dropdown-item" (click)="iraConfiguracion()">
+            <span>⚙️</span> Configuración
+          </button>
+          <button class="dropdown-item logout-btn" (click)="logout()">
+            <span>🚪</span> Cerrar Sesión
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón de login (cuando no está logueado) -->
+    <ng-template #loginButton>
+      <button class="login-btn" (click)="abrirModal()">Iniciar sesión</button>
+    </ng-template>
+
+    <!-- Modal de login -->
+    <div
+      class="modal-backdrop"
+      [class.show]="modalAbierto"
+      (click)="cerrarModal()"
+    >
+      <div class="modal" (click)="$event.stopPropagation()">
+        <h2>Iniciar sesión</h2>
+        <form (ngSubmit)="login()" #loginForm="ngForm">
+          <input
+            type="email"
+            name="correo"
+            [(ngModel)]="correo"
+            placeholder="Correo electrónico"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="password"
+            placeholder="Contraseña"
+            required
+          />
+          <button type="submit" [disabled]="!loginForm.form.valid">
+            Entrar
+          </button>
+        </form>
+        <button class="cerrar-modal" (click)="cerrarModal()">Cerrar</button>
+      </div>
+    </div>
+
+    <!-- Botón móvil (hamburguesa) -->
+    <div class="mobile-menu-toggle" (click)="cerrarUserMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+</header>

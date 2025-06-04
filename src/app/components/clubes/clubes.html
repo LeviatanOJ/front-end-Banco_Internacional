@@ -1,0 +1,71 @@
+<div class="clubes-container">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Nuestros Clubes</h1>
+      <p>Únete a nuestras actividades y mantente activo</p>
+    </div>
+  </section>
+
+  <!-- Loading -->
+  <div class="loading" *ngIf="cargando">
+    <div class="spinner"></div>
+    <p>Cargando clubes...</p>
+  </div>
+
+  <!-- Clubes Grid -->
+  <section class="clubes-section" *ngIf="!cargando">
+    <div class="container">
+      <div class="clubes-grid">
+        <div class="club-card" *ngFor="let club of clubes">
+          <div class="club-header">
+            <span class="club-icon">{{ obtenerIconoClub(club.nombre) }}</span>
+            <h3>{{ club.nombre }}</h3>
+            <span
+              class="modalidad-badge"
+              [style.background-color]="obtenerColorModalidad(club.modalidad)"
+            >
+              {{ club.modalidad }}
+            </span>
+          </div>
+
+          <div class="club-details">
+            <div class="detail-item">
+              <span class="icon">📍</span>
+              <div>
+                <strong>Lugar:</strong>
+                <p>{{ club.lugar }}</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="icon">📅</span>
+              <div>
+                <strong>Días:</strong>
+                <p>{{ club.dias }}</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="icon">⏰</span>
+              <div>
+                <strong>Horario:</strong>
+                <p>{{ club.horario }}</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="icon">🌍</span>
+              <div>
+                <strong>Ciudad:</strong>
+                <p>{{ club.ciudad }}</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="join-btn">Unirse al Club</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

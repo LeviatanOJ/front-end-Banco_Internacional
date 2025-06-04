@@ -1,0 +1,286 @@
+<div class="landing-page">
+  <!-- Hero Section con Video Background -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <span class="badge-text">🔥 ¡Nuevo Programa!</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="title-line">¡Actívate</span>
+            <span class="title-line highlight">con Energía!</span>
+          </h1>
+          <p class="hero-subtitle">
+            Transforma tu día a día con nuestro programa integral de
+            <strong>activación física, mental y emocional</strong>. Únete a una
+            comunidad de colaboradores en Banco Internacional que viven la vida
+            al máximo.
+          </p>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number" data-target="500">0</span>
+              <span class="stat-label">Colaboradores Activos</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-target="3">0</span>
+              <span class="stat-label">Iniciativas Principales</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-target="12">0</span>
+              <span class="stat-label">Meses de Actividades</span>
+            </div>
+          </div>
+
+          <div class="hero-buttons">
+            <button
+              class="btn btn-primary btn-pulse"
+              onclick="scrollToSection('programs')"
+            >
+              <span>🚀 Explorar Programas</span>
+            </button>
+            <button
+              class="btn btn-secondary btn-glow"
+              onclick="openVideoModal()"
+            >
+              <span>▶️ Ver Video</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Video Placeholder -->
+        <div class="hero-video">
+          <div class="video-placeholder" onclick="openVideoModal()">
+            <div class="play-button">
+              <div class="play-icon">▶️</div>
+            </div>
+            <div class="video-overlay">
+              <h3>Descubre Actívate BI</h3>
+              <p>Video promocional del programa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section class="programs" id="programs">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="title-accent">Nuestros</span> Programas
+        </h2>
+        <p class="section-subtitle">
+          Tres iniciativas diseñadas para activar todo tu potencial
+        </p>
+      </div>
+
+      <div class="programs-grid">
+        <!-- Campeonato de Fútbol -->
+        <div
+          class="program-card card-football"
+          data-aos="fade-up"
+          data-delay="0"
+        >
+          <div class="card-background">
+            <div class="card-icon">⚽</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Campeonato de Fútbol</h3>
+            <p class="card-description">
+              Competencia anual en Quito con categorías femenina y masculina. ¡2
+              meses de pura emoción deportiva!
+            </p>
+            <div class="card-details">
+              <div class="detail">
+                <span class="detail-icon">📅</span>
+                <span>Marzo - Mayo</span>
+              </div>
+              <div class="detail">
+                <span class="detail-icon">📍</span>
+                <span>Quito</span>
+              </div>
+              <div class="detail">
+                <span class="detail-icon">👥</span>
+                <span>Equipos Mixtos</span>
+              </div>
+            </div>
+            <div class="card-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%"></div>
+              </div>
+              <span class="progress-text">Inscripciones: 75% completadas</span>
+            </div>
+            <div>
+              <p>
+                <br />
+                <br />
+              </p>
+            </div>
+            <button class="card-btn" routerLink="/campeonato">
+              Inscribir Equipo 🏆
+            </button>
+          </div>
+        </div>
+
+        <!-- Mañana Actívate -->
+        <div
+          class="program-card card-morning"
+          data-aos="fade-up"
+          data-delay="200"
+        >
+          <div class="card-background">
+            <div class="card-icon">🌅</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Mañana Actívate BI</h3>
+            <p class="card-description">
+              Evento anual de integración y actividad física en todas nuestras
+              oficinas regionales. ¡Una mañana llena de energía!
+            </p>
+            <div class="card-details">
+              <div class="detail">
+                <span class="detail-icon">📅</span>
+                <span>Sep - Nov</span>
+              </div>
+              <div class="detail">
+                <span class="detail-icon">📍</span>
+                <span>Todas las Oficinas</span>
+              </div>
+              <div class="detail">
+                <span class="detail-icon">🎯</span>
+                <span>Integración</span>
+              </div>
+            </div>
+            <div class="card-countdown">
+              <span class="countdown-label">Próximo evento en:</span>
+              <div class="countdown-timer">
+                <div class="time-unit">
+                  <span class="time-number">127</span>
+                  <span class="time-label">días</span>
+                </div>
+              </div>
+            </div>
+            <button class="card-btn" routerLink="/manana-activate">
+              Conocer Más 🎉
+            </button>
+          </div>
+        </div>
+
+        <!-- Clubes -->
+        <div
+          class="program-card card-clubs"
+          data-aos="fade-up"
+          data-delay="400"
+        >
+          <div class="card-background">
+            <div class="card-icon">🏋️‍♀️</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Clubes Actívate</h3>
+            <p class="card-description">
+              Únete a nuestros clubes permanentes: Yoga, Running y Lectura.
+              Actividades dirigidas por y para colaboradores.
+            </p>
+            <div class="clubs-preview">
+              <div class="club-item">
+                <span class="club-emoji">🧘‍♀️</span>
+                <span class="club-name">Yoga</span>
+                <span class="club-schedule">Jueves 17:00</span>
+              </div>
+              <div class="club-item">
+                <span class="club-emoji">🏃‍♂️</span>
+                <span class="club-name">Running</span>
+                <span class="club-schedule">Mar/Jue 18:30</span>
+              </div>
+              <div class="club-item">
+                <span class="club-emoji">📚</span>
+                <span class="club-name">Lectura</span>
+                <span class="club-schedule">Mié 17:00</span>
+              </div>
+            </div>
+            <button class="card-btn" routerLink="/clubes">
+              Unirse a un Club 🌟
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Features Section -->
+  <section class="interactive-features">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="title-accent">Experiencia</span> Interactiva
+        </h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card" data-aos="zoom-in">
+          <div class="feature-icon">📊</div>
+          <h3>Dashboard Personal</h3>
+          <p>Seguimiento de tu progreso en tiempo real</p>
+          <button class="feature-btn" onclick="showDemo('dashboard')">
+            Ver Demo
+          </button>
+        </div>
+
+        <div class="feature-card" data-aos="zoom-in" data-delay="200">
+          <div class="feature-icon">🏆</div>
+          <h3>Sistema de Logros</h3>
+          <p>Desbloquea insignias y recompensas</p>
+          <button class="feature-btn" onclick="showDemo('achievements')">
+            Explorar
+          </button>
+        </div>
+
+        <div class="feature-card" data-aos="zoom-in" data-delay="400">
+          <div class="feature-icon">🎮</div>
+          <h3>Desafíos Gamificados</h3>
+          <p>Retos semanales y competencias amigables</p>
+          <button class="feature-btn" onclick="showDemo('challenges')">
+            Jugar
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">¿Listo para Activarte?</h2>
+        <p class="cta-subtitle">
+          Únete a cientos de colaboradores que ya están transformando su
+          bienestar
+        </p>
+        <div class="cta-buttons">
+          <button
+            class="btn btn-primary btn-large"
+            onclick="startRegistration()"
+          >
+            🚀 Comenzar Ahora
+          </button>
+          <button class="btn btn-secondary btn-large" onclick="scheduleCall()">
+            📞 Agendar Llamada
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Modal para Video -->
+<div class="video-modal" id="videoModal" onclick="closeVideoModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="close-btn" onclick="closeVideoModal()">&times;</button>
+    <div class="video-container">
+      <iframe src="about:blank" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
