@@ -30,16 +30,20 @@ export class Clubes implements OnInit {
   }
 
   cargarClubes() {
-    this.http.get<Club[]>('http://localhost:3000/api/clubes').subscribe({
-      next: (response) => {
-        this.clubes = response;
-        this.cargando = false;
-      },
-      error: (error) => {
-        console.error('Error al cargar clubes:', error);
-        this.cargando = false;
-      },
-    });
+    this.http
+      .get<Club[]>(
+        'https://back-en-banco-internacional-570363792827.europe-west1.run.app/api/clubes'
+      )
+      .subscribe({
+        next: (response) => {
+          this.clubes = response;
+          this.cargando = false;
+        },
+        error: (error) => {
+          console.error('Error al cargar clubes:', error);
+          this.cargando = false;
+        },
+      });
   }
 
   obtenerIconoClub(nombre: string): string {

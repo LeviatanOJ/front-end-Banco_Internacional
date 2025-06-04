@@ -3,6 +3,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -28,7 +30,10 @@ export class Header implements OnInit {
   userMenuAbierto: boolean = false;
   datosUsuario: any = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit() {
     // Verificar si hay un usuario logueado al cargar el componente
@@ -37,17 +42,19 @@ export class Header implements OnInit {
 
   // Verificar si existe una sesión guardada
   verificarSesionExistente() {
-    const token = localStorage.getItem('token');
-    const usuario = localStorage.getItem('usuario');
+    if (isPlatformBrowser(this.platformId)) {
+      const token = localStorage.getItem('token');
+      const usuario = localStorage.getItem('usuario');
 
-    if (token && usuario) {
-      try {
-        this.datosUsuario = JSON.parse(usuario);
-        this.usuarioLogueado = true;
-        this.nombreUsuario = this.obtenerNombreCompleto(this.datosUsuario);
-      } catch (error) {
-        console.error('Error al parsear datos de usuario:', error);
-        this.limpiarSesion();
+      if (token && usuario) {
+        try {
+          this.datosUsuario = JSON.parse(usuario);
+          this.usuarioLogueado = true;
+          this.nombreUsuario = this.obtenerNombreCompleto(this.datosUsuario);
+        } catch (error) {
+          console.error('Error al parsear datos de usuario:', error);
+          this.limpiarSesion();
+        }
       }
     }
   }
@@ -89,7 +96,10 @@ export class Header implements OnInit {
     };
 
     this.http
-      .post<any>('http://localhost:3000/api/auth/login', body)
+      .post<any>(
+        'https://back-en-banco-internacional-570363792827.europe-west1.run.app/api/auth/login',
+        body
+      )
       .subscribe({
         next: (response) => {
           console.log('Login exitoso:', response);

@@ -27,7 +27,9 @@ export class MorningActivate implements OnInit {
 
   cargarEventos() {
     this.http
-      .get<EventoMorning[]>('http://localhost:3000/api/eventomanana')
+      .get<EventoMorning[]>(
+        'https://back-en-banco-internacional-570363792827.europe-west1.run.app/api/eventomanana'
+      )
       .subscribe({
         next: (response) => {
           this.eventos = response;

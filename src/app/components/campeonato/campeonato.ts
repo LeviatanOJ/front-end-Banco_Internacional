@@ -34,16 +34,20 @@ export class Campeonato implements OnInit {
   }
 
   cargarEquipos() {
-    this.http.get<Equipo[]>('http://localhost:3000/api/equipos').subscribe({
-      next: (response) => {
-        this.equipos = response;
-        this.cargando = false;
-      },
-      error: (error) => {
-        console.error('Error al cargar equipos:', error);
-        this.cargando = false;
-      },
-    });
+    this.http
+      .get<Equipo[]>(
+        'https://back-en-banco-internacional-570363792827.europe-west1.run.app/api/equipos'
+      )
+      .subscribe({
+        next: (response) => {
+          this.equipos = response;
+          this.cargando = false;
+        },
+        error: (error) => {
+          console.error('Error al cargar equipos:', error);
+          this.cargando = false;
+        },
+      });
   }
 
   formatearFecha(fecha: string): string {
