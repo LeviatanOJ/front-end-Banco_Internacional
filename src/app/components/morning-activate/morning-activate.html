@@ -21,9 +21,7 @@
           <div class="evento-header">
             <span class="evento-icon">🌅</span>
             <h3>Morning Activate</h3>
-            <span class="fecha-badge">
-              {{ formatearFecha(evento.fecha) }}
-            </span>
+            <span class="fecha-badge">{{ formatearFecha(evento.fecha) }}</span>
           </div>
 
           <div class="evento-details">
@@ -60,7 +58,48 @@
             </div>
           </div>
 
-          <button class="join-btn">Participar en Evento</button>
+          <button
+            class="join-btn"
+            (click)="inscribirseAlEvento(evento.id)"
+            [disabled]="inscribiendo && eventoInscribiendoId === evento.id"
+          >
+            <ng-container
+              *ngIf="inscribiendo && eventoInscribiendoId === evento.id"
+            >
+              Inscribiendo...
+            </ng-container>
+            <ng-container
+              *ngIf="!inscribiendo || eventoInscribiendoId !== evento.id"
+            >
+              Participar en Evento
+            </ng-container>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lista de Inscritos -->
+  <section class="eventos-section" *ngIf="inscritos.length > 0">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 2rem">
+        Participantes Inscritos
+      </h2>
+      <div class="eventos-grid">
+        <div class="evento-card" *ngFor="let inscrito of inscritos">
+          <div class="evento-header">
+            <span class="evento-icon">👤</span>
+            <h3>{{ inscrito.participante }}</h3>
+          </div>
+          <div class="evento-details">
+            <div class="detail-item">
+              <span class="icon">📧</span>
+              <div>
+                <strong>Correo:</strong>
+                <p>{{ inscrito.correo }}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
