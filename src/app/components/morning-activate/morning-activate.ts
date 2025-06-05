@@ -92,7 +92,10 @@ export class MorningActivate implements OnInit {
     };
 
     this.http
-      .post('http://localhost:8080/api/inscribirEvento', payload)
+      .post(
+        'https://back-en-banco-internacional-570363792827.europe-west1.run.app/api/inscribirEvento',
+        payload
+      )
       .subscribe({
         next: () => {
           alert('¡Inscripción exitosa al evento!');
@@ -111,7 +114,9 @@ export class MorningActivate implements OnInit {
 
   cargarInscritos() {
     this.http
-      .get<InscritoEvento[]>('http://localhost:8080/api/participacionesEvento')
+      .get<InscritoEvento[]>(
+        'https://back-en-banco-internacional-570363792827.europe-west1.run.app/api/participacionesEvento'
+      )
       .subscribe({
         next: (res) => (this.inscritos = res),
         error: (err) => console.error('Error al cargar inscritos:', err),
