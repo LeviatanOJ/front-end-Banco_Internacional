@@ -63,7 +63,81 @@
             </div>
           </div>
 
-          <button class="join-btn">Unirse al Club</button>
+          <!-- Botón para mostrar opciones de rol -->
+          <ng-container *ngIf="participante; else noLogueado">
+            <div *ngIf="!mostrarSelectorRol[club.id]">
+              <button
+                class="join-btn"
+                [disabled]="inscribiendo"
+                (click)="mostrarSelectorRol[club.id] = true"
+              >
+                Unirse al Club
+              </button>
+            </div>
+
+            <!-- Selector de rol -->
+            <div *ngIf="mostrarSelectorRol[club.id]" class="rol-selector">
+              <p>¿Cómo deseas unirte?</p>
+              <button
+                class="join-btn small"
+                [disabled]="inscribiendo"
+                (click)="inscribirseAlClub(club.id, 1)"
+              >
+                Como Coach
+              </button>
+              <button
+                class="join-btn small"
+                [disabled]="inscribiendo"
+                (click)="inscribirseAlClub(club.id, 2)"
+              >
+                Como Participante
+              </button>
+              <button
+                class="cancel-btn"
+                (click)="mostrarSelectorRol[club.id] = false"
+              >
+                Cancelar
+              </button>
+            </div>
+          </ng-container>
+
+          <!-- Usuario no logueado -->
+          <ng-template #noLogueado>
+            <button class="join-btn" disabled>Inicia sesión para unirte</button>
+          </ng-template>
+
+          <!-- Estado de inscripción -->
+          <div *ngIf="estaInscribiendoClub(club.id)" class="loading-text">
+            <span class="loading-spinner"></span>
+            Inscribiendo...
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lista de Inscritos -->
+  <section class="inscritos-section" *ngIf="inscritos.length > 0">
+    <div class="container">
+      <h2 class="inscritos-title">Participantes inscritos</h2>
+      <div class="inscritos-grid">
+        <div class="inscrito-card" *ngFor="let i of inscritos">
+          <div class="inscrito-header">
+            <div class="inscrito-info">
+              <h3>{{ i.participante }}</h3>
+              <p class="correo">{{ i.correo }}</p>
+            </div>
+            <span
+              class="rol-badge"
+              [style.background-color]="obtenerColorRol(i.rol)"
+            >
+              {{ i.rol }}
+            </span>
+          </div>
+          <div class="inscrito-detalle">
+            <span class="label">Club:</span>
+            <span class="club">{{ i.club }}</span>
+          </div>
         </div>
       </div>
     </div>

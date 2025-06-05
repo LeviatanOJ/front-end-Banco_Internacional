@@ -188,3 +188,154 @@
     padding: 2rem 1rem;
   }
 }
+
+/* Estilos adicionales para el botón de inscripción */
+
+/* Botón cuando está cargando */
+.join-btn.loading {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.join-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Texto de carga */
+.loading-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Spinner para el botón */
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animación del spinner */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilo para cuando no está logueado */
+.join-btn:disabled:not(.loading) {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.join-btn:disabled:not(.loading):hover {
+  background: #6c757d;
+  transform: none;
+  box-shadow: none;
+}
+
+.rol-selector {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.join-btn.small {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.cancel-btn {
+  background-color: transparent;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.inscritos-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f1f3f5 100%);
+}
+
+.inscritos-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.inscritos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.inscrito-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.inscrito-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.inscrito-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.inscrito-info h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.inscrito-info .correo {
+  font-size: 0.9rem;
+  color: #666;
+  opacity: 0.85;
+}
+
+.rol-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+}
+
+.inscrito-detalle {
+  font-size: 0.95rem;
+  color: #444;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.inscrito-detalle .label {
+  color: rgba(234, 142, 41, 1);
+  font-weight: 600;
+}
+
+.inscrito-detalle .club {
+  font-weight: 500;
+  color: #555;
+}
