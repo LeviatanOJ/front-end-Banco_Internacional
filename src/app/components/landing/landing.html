@@ -1,5 +1,4 @@
 <div class="landing-page">
-  <!-- Hero Section con Video Background -->
   <section class="hero" id="hero">
     <div class="hero-content">
       <div class="container">
@@ -13,22 +12,21 @@
           </h1>
           <p class="hero-subtitle">
             Transforma tu día a día con nuestro programa integral de
-            <strong>activación física, mental y emocional</strong>. Únete a una
-            comunidad de colaboradores en Banco Internacional que viven la vida
-            al máximo.
+            **activación física, mental y emocional**. Únete a una comunidad de
+            colaboradores en Banco Internacional que viven la vida al máximo.
           </p>
 
           <div class="hero-stats">
             <div class="stat">
-              <span class="stat-number" data-target="500">0</span>
+              <span class="stat-number" data-target="500">100</span>
               <span class="stat-label">Colaboradores Activos</span>
             </div>
             <div class="stat">
-              <span class="stat-number" data-target="3">0</span>
+              <span class="stat-number" data-target="3">3</span>
               <span class="stat-label">Iniciativas Principales</span>
             </div>
             <div class="stat">
-              <span class="stat-number" data-target="12">0</span>
+              <span class="stat-number" data-target="12">2</span>
               <span class="stat-label">Meses de Actividades</span>
             </div>
           </div>
@@ -36,22 +34,21 @@
           <div class="hero-buttons">
             <button
               class="btn btn-primary btn-pulse"
-              onclick="scrollToSection('programs')"
+              (click)="scrollToSection('programs')"
             >
               <span>🚀 Explorar Programas</span>
             </button>
             <button
               class="btn btn-secondary btn-glow"
-              onclick="openVideoModal()"
+              (click)="openVideoModal()"
             >
               <span>▶️ Ver Video</span>
             </button>
           </div>
         </div>
 
-        <!-- Video Placeholder -->
         <div class="hero-video">
-          <div class="video-placeholder" onclick="openVideoModal()">
+          <div class="video-placeholder" (click)="openVideoModal()">
             <div class="play-button">
               <div class="play-icon">▶️</div>
             </div>
@@ -65,7 +62,6 @@
     </div>
   </section>
 
-  <!-- Programs Section -->
   <section class="programs" id="programs">
     <div class="container">
       <div class="section-header">
@@ -78,7 +74,6 @@
       </div>
 
       <div class="programs-grid">
-        <!-- Campeonato de Fútbol -->
         <div
           class="program-card card-football"
           data-aos="fade-up"
@@ -119,13 +114,12 @@
                 <br />
               </p>
             </div>
-            <button class="card-btn" routerLink="/campeonato">
+            <button class="card-btn" (click)="irACampeonato()">
               Inscribir Equipo 🏆
             </button>
           </div>
         </div>
 
-        <!-- Mañana Actívate -->
         <div
           class="program-card card-morning"
           data-aos="fade-up"
@@ -163,13 +157,12 @@
                 </div>
               </div>
             </div>
-            <button class="card-btn" routerLink="/manana-activate">
+            <button class="card-btn" (click)="irAactivate()">
               Conocer Más 🎉
             </button>
           </div>
         </div>
 
-        <!-- Clubes -->
         <div
           class="program-card card-clubs"
           data-aos="fade-up"
@@ -201,7 +194,7 @@
                 <span class="club-schedule">Mié 17:00</span>
               </div>
             </div>
-            <button class="card-btn" routerLink="/clubes">
+            <button class="card-btn" (click)="irAClubes()">
               Unirse a un Club 🌟
             </button>
           </div>
@@ -210,7 +203,6 @@
     </div>
   </section>
 
-  <!-- Interactive Features Section -->
   <section class="interactive-features">
     <div class="container">
       <div class="section-header">
@@ -250,24 +242,21 @@
     </div>
   </section>
 
-  <!-- Call to Action -->
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2 class="cta-title">¿Listo para Activarte?</h2>
+        <h2 class="cta-title">¿Listo para tu pausa activa?</h2>
         <p class="cta-subtitle">
-          Únete a cientos de colaboradores que ya están transformando su
-          bienestar
+          ¡Cuida tu cuerpo y mente! Únete al reto de 5 minutos de activación.
         </p>
+
+        <!-- Aquí reutilizamos la estructura de botones y texto -->
         <div class="cta-buttons">
-          <button
-            class="btn btn-primary btn-large"
-            onclick="startRegistration()"
-          >
-            🚀 Comenzar Ahora
+          <button class="btn btn-primary btn-pulse" onclick="startBreakTimer()">
+            ⏱️ Iniciar Pausa
           </button>
-          <button class="btn btn-secondary btn-large" onclick="scheduleCall()">
-            📞 Agendar Llamada
+          <button class="btn btn-secondary btn-glow" onclick="viewTips()">
+            💡 Tips de Bienestar
           </button>
         </div>
       </div>
@@ -275,12 +264,20 @@
   </section>
 </div>
 
-<!-- Modal para Video -->
-<div class="video-modal" id="videoModal" onclick="closeVideoModal()">
-  <div class="modal-content" onclick="event.stopPropagation()">
-    <button class="close-btn" onclick="closeVideoModal()">&times;</button>
+<!-- Modal de Video -->
+<div class="video-modal" [class.show]="isModalOpen" (click)="closeVideoModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeVideoModal()">×</button>
     <div class="video-container">
-      <iframe src="about:blank" frameborder="0" allowfullscreen></iframe>
+      <iframe
+        *ngIf="isModalOpen"
+        [src]="videoUrlSafe"
+        width="560"
+        height="315"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
     </div>
   </div>
 </div>

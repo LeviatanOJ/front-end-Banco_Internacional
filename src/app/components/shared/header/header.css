@@ -428,11 +428,11 @@
 /* Botón de cerrar modal */
 .cerrar-modal {
   margin-top: 1.5rem;
-  background: none;
-  border: none;
+  background: 0.2s;
+  border: 0.25rem;
   color: #6c757d;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 20px;
   transition: color 0.3s ease;
   align-self: center;
   padding: 8px 16px;
